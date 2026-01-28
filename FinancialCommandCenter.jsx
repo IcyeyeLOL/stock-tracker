@@ -530,7 +530,7 @@ export default function FinancialCommandCenter() {
       }}>
         <div style={{ marginBottom: '32px' }}>
           <h1 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '8px' }}>
-            📊 Command Center
+            Command Center
           </h1>
           <button
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
@@ -544,21 +544,21 @@ export default function FinancialCommandCenter() {
               fontSize: '12px',
             }}
           >
-            {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+            {theme === 'light' ? 'Dark' : 'Light'}
           </button>
         </div>
 
         {/* Navigation */}
         <nav style={{ marginBottom: '32px' }}>
           {[
-            { id: 'dashboard', label: '📊 Dashboard', icon: '📊' },
-            { id: 'watchlist', label: '⭐ Watchlist', icon: '⭐' },
-            { id: 'alerts', label: '🔔 Alerts', icon: '🔔' },
-            { id: 'ticker', label: '📰 Ticker Detail', icon: '📰' },
-            { id: 'digest', label: '📋 Digest', icon: '📋' },
-            { id: 'social', label: '🌐 Social', icon: '🌐' },
-            { id: 'portfolio', label: '💼 Portfolio', icon: '💼' },
-            { id: 'sectors', label: '🏢 Sectors', icon: '🏢' },
+            { id: 'dashboard', label: 'Dashboard', icon: null },
+            { id: 'watchlist', label: 'Watchlist', icon: null },
+            { id: 'alerts', label: 'Alerts', icon: null },
+            { id: 'ticker', label: 'Ticker Detail', icon: null },
+            { id: 'digest', label: 'Digest', icon: null },
+            { id: 'social', label: 'Social', icon: null },
+            { id: 'portfolio', label: 'Portfolio', icon: null },
+            { id: 'sectors', label: 'Sectors', icon: null },
           ].map(item => (
             <button
               key={item.id}
@@ -708,7 +708,7 @@ export default function FinancialCommandCenter() {
                   fontWeight: '500',
                 }}
               >
-                {loading ? 'Loading...' : '🔄 Refresh'}
+                {loading ? 'Loading...' : 'Refresh'}
               </button>
             </div>
 
@@ -937,7 +937,7 @@ export default function FinancialCommandCenter() {
                 marginBottom: '24px',
               }}
             >
-              {loading ? 'Checking...' : '🔄 Check Alerts'}
+              {loading ? 'Checking...' : 'Check Alerts'}
             </button>
 
             {alerts.length === 0 ? (
@@ -1084,7 +1084,7 @@ export default function FinancialCommandCenter() {
                     fontWeight: '500',
                   }}
                 >
-                  {loading ? 'Generating...' : '📋 Generate Digest'}
+                  {loading ? 'Generating...' : 'Generate Digest'}
                 </button>
                 {digest && (
                   <>
@@ -1102,7 +1102,7 @@ export default function FinancialCommandCenter() {
                         fontWeight: '500',
                       }}
                     >
-                      {emailLoading ? 'Sending...' : '📧 Email'}
+                      {emailLoading ? 'Sending...' : 'Email'}
                     </button>
                     <button
                       onClick={exportToPDF}
@@ -1117,7 +1117,7 @@ export default function FinancialCommandCenter() {
                         fontWeight: '500',
                       }}
                     >
-                      📄 Export PDF
+                      Export PDF
                     </button>
                   </>
                 )}
@@ -1418,7 +1418,7 @@ export default function FinancialCommandCenter() {
                             fontWeight: '500',
                           }}
                         >
-                          {isFollowing ? '✓ Following' : '+ Follow'}
+                          {isFollowing ? 'Following' : 'Follow'}
                         </button>
                       </div>
                     );

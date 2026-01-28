@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { View } from '@/app/page'
 import { useTheme } from './ThemeProvider'
-import { SECTORS } from '@/lib/constants'
+import { CATALYSTS, SECTORS } from '@/lib/constants'
 import { useStorage } from '@/hooks/useStorage'
 
 interface SidebarProps {
@@ -19,16 +19,17 @@ export default function Sidebar({ activeView, setActiveView }: SidebarProps) {
   const [watchlist] = useStorage('watchlist', [])
   const [news] = useStorage('news', [])
   const [mounted, setMounted] = useState(false)
+  const [showAllSectors, setShowAllSectors] = useState(false)
   useEffect(() => setMounted(true), [])
 
   const navItems = [
-    { id: 'dashboard' as View, label: '📊 Dashboard' },
-    { id: 'watchlist' as View, label: '⭐ Watchlist' },
-    { id: 'alerts' as View, label: '🔔 Alerts' },
-    { id: 'ticker' as View, label: '📰 Ticker Detail' },
-    { id: 'digest' as View, label: '📋 Digest' },
-    { id: 'social' as View, label: '🌐 Social' },
-    { id: 'portfolio' as View, label: '💼 Portfolio' },
+    { id: 'dashboard' as View, label: 'Dashboard' },
+    { id: 'watchlist' as View, label: 'Watchlist' },
+    { id: 'alerts' as View, label: 'Alerts' },
+    { id: 'ticker' as View, label: 'Ticker Detail' },
+    { id: 'digest' as View, label: 'Digest' },
+    { id: 'social' as View, label: 'Social' },
+    { id: 'portfolio' as View, label: 'Portfolio' },
   ]
 
   const stats = mounted
@@ -42,12 +43,12 @@ export default function Sidebar({ activeView, setActiveView }: SidebarProps) {
   return (
     <div className="w-72 border-r border-gray-200 dark:border-gray-800 p-6 overflow-y-auto bg-white dark:bg-[#1a1a1a]">
       <div className="mb-8">
-        <h1 className="text-xl font-semibold mb-2">📊 Command Center</h1>
+        <h1 className="text-xl font-semibold mb-2">Command Center</h1>
         <button
           onClick={toggleTheme}
           className="px-3 py-1.5 text-xs border border-gray-200 dark:border-gray-800 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+          {theme === 'light' ? 'Dark' : 'Light'}
         </button>
       </div>
 
@@ -77,10 +78,24 @@ export default function Sidebar({ activeView, setActiveView }: SidebarProps) {
       </div>
 
       <div className="mb-6">
-        <div className="text-xs font-semibold mb-3">
-          Sectors ({SECTORS.length + customSectors.length})
+        <div className="flex items-center justify-between mb-3">
+          <div className="text-xs font-semibold">
+            Sectors ({SECTORS.length + customSectors.length})
+          </div>
+          {SECTORS.length + customSectors.length > 5 && (
+            <button
+              type="button"
+              onClick={() => setShowAllSectors((v) => !v)}
+              className="text-xs text-primary-500 hover:underline"
+            >
+              {showAllSectors ? 'View less' : 'View all'}
+            </button>
+          )}
         </div>
-        {[...SECTORS, ...customSectors].slice(0, 5).map(sector => (
+
+        {([...SECTORS, ...customSectors] as any[])
+          .slice(0, showAllSectors ? undefined : 5)
+          .map(sector => (
           <label key={sector.id} className="flex items-center mb-2 text-sm cursor-pointer">
             <input
               type="checkbox"
@@ -98,6 +113,32 @@ export default function Sidebar({ activeView, setActiveView }: SidebarProps) {
             {sector.custom && (
               <span className="text-xs text-primary-500 ml-1">(Custom)</span>
             )}
+          </label>
+        ))}
+      </div>
+
+      <div className="mb-6">
+        <div className="text-xs font-semibold mb-3">Catalysts</div>
+        {CATALYSTS.map((catalyst) => (
+          <label key={catalyst.id} className="flex items-center mb-2 text-sm cursor-pointer">
+            <input
+              type="checkbox"
+              checked={selectedCatalysts.includes(catalyst.id)}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  setSelectedCatalysts([...selectedCatalysts, catalyst.id])
+                } else {
+                  setSelectedCatalysts(selectedCatalysts.filter((c) => c !== catalyst.id))
+                }
+              }}
+              className="mr-2"
+            />
+            <span
+              aria-hidden
+              className="inline-block w-2 h-2 rounded-sm mr-2"
+              style={{ backgroundColor: catalyst.color }}
+            />
+            {catalyst.name}
           </label>
         ))}
       </div>

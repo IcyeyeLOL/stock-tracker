@@ -101,7 +101,7 @@ export default function Digest() {
 
   const exportToPDF = () => {
     const ok = window.confirm(
-      'Download digest as PDF?\n\nYour browser will open the print dialog — choose "Save as PDF" or "Microsoft Print to PDF" as the destination, then save the file.'
+      'Download digest as PDF?\n\nYour browser will open the print dialog - choose "Save as PDF" or "Microsoft Print to PDF" as the destination, then save the file.'
     )
     if (ok) window.print()
   }
@@ -116,7 +116,7 @@ export default function Digest() {
             disabled={loading}
             className="px-5 py-2.5 bg-primary-500 text-white rounded-lg disabled:opacity-50 hover:bg-primary-600 transition-colors"
           >
-            {loading ? 'Generating...' : '📋 Generate Digest'}
+            {loading ? 'Generating...' : 'Generate Digest'}
           </button>
           {digest && (
             <>
@@ -125,13 +125,13 @@ export default function Digest() {
                 disabled={emailLoading}
                 className="px-5 py-2.5 bg-green-500 text-white rounded-lg disabled:opacity-50 hover:bg-green-600 transition-colors"
               >
-                📧 Email
+                Email
               </button>
               <button
                 onClick={exportToPDF}
                 className="px-5 py-2.5 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors"
               >
-                📄 Export PDF
+                Export PDF
               </button>
             </>
           )}
@@ -186,7 +186,7 @@ export default function Digest() {
               Send digest to your email
             </h3>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-              Enter your email and we’ll send you today’s digest (including key articles). You can export a PDF from the Digest page.
+              Enter your email and we'll send you today's digest (including key articles). You can export a PDF from the Digest page.
             </p>
             <input
               type="email"

@@ -128,7 +128,7 @@ export default function Dashboard() {
           disabled={loading}
           className="px-5 py-2.5 bg-primary-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary-600 transition-colors"
         >
-          {loading ? 'Loading...' : '🔄 Refresh'}
+          {loading ? 'Loading...' : 'Refresh'}
         </button>
       </div>
 

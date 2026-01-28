@@ -71,7 +71,7 @@ export default function Alerts() {
         disabled={loading || watchlist.length === 0}
         className="px-5 py-2.5 bg-primary-500 text-white rounded-lg disabled:opacity-50 mb-6 hover:bg-primary-600 transition-colors"
       >
-        {loading ? 'Checking...' : '🔄 Check Alerts'}
+        {loading ? 'Checking...' : 'Check Alerts'}
       </button>
 
       {error && (

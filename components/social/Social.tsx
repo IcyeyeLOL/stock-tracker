@@ -207,7 +207,7 @@ export default function Social() {
                         : 'bg-primary-500 text-white hover:bg-primary-600'
                     }`}
                   >
-                    {isFollowing ? '✓ Following' : '+ Follow'}
+                    {isFollowing ? 'Following' : 'Follow'}
                   </button>
                 </div>
               )
