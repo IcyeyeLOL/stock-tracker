@@ -5,6 +5,7 @@ import { View } from '@/app/page'
 import { useTheme } from './ThemeProvider'
 import { CATALYSTS, SECTORS } from '@/lib/constants'
 import { useStorage } from '@/hooks/useStorage'
+import type { Sector } from '@/types'
 
 interface SidebarProps {
   activeView: View
@@ -13,9 +14,9 @@ interface SidebarProps {
 
 export default function Sidebar({ activeView, setActiveView }: SidebarProps) {
   const { theme, toggleTheme } = useTheme()
-  const [customSectors] = useStorage('customSectors', [])
-  const [selectedSectors, setSelectedSectors] = useStorage('selectedSectors', [])
-  const [selectedCatalysts, setSelectedCatalysts] = useStorage('selectedCatalysts', [])
+  const [customSectors] = useStorage<Sector[]>('customSectors', [])
+  const [selectedSectors, setSelectedSectors] = useStorage<string[]>('selectedSectors', [])
+  const [selectedCatalysts, setSelectedCatalysts] = useStorage<string[]>('selectedCatalysts', [])
   const [watchlist] = useStorage('watchlist', [])
   const [news] = useStorage('news', [])
   const [mounted, setMounted] = useState(false)
@@ -93,7 +94,7 @@ export default function Sidebar({ activeView, setActiveView }: SidebarProps) {
           )}
         </div>
 
-        {([...SECTORS, ...customSectors] as any[])
+        {([...SECTORS, ...(customSectors || [])] as Sector[])
           .slice(0, showAllSectors ? undefined : 5)
           .map(sector => (
           <label key={sector.id} className="flex items-center mb-2 text-sm cursor-pointer">
