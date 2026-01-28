@@ -1,4 +1,6 @@
-# Financial Command Center (Stock Tracker)
+# stock-tracker
+
+## Financial Command Center
 
 A comprehensive financial intelligence platform for tracking stocks, news, portfolios, and market digests. Built with Next.js, TypeScript, and Tailwind CSS.
 
@@ -157,49 +159,9 @@ See **[API_KEYS_GUIDE.md](./API_KEYS_GUIDE.md)** for more. For step-by-step setu
 
 ---
 
-## Push to GitHub (repo: `stock-tracker`)
+## GitHub
 
-To push this project to a GitHub repo named **stock-tracker**:
-
-### 1. Create the repo on GitHub
-
-1. Go to [github.com](https://github.com) → **New repository**
-2. Name it **stock-tracker**
-3. Leave it empty (no README, no .gitignore)
-4. Create the repo and copy its URL, e.g. `https://github.com/YOUR_USERNAME/stock-tracker.git`
-
-### 2. From the project folder (Stock Tracker)
-
-Open a terminal in **Stock Tracker** (the folder with `package.json`), then run:
-
-```bash
-# If this folder isn’t a git repo yet:
-git init
-
-# Ignore secrets (.env is already in .gitignore – don’t remove it)
-git add .
-git commit -m "Initial commit: Financial Command Center (Stock Tracker)"
-
-# Use the main branch
-git branch -M main
-
-# Add your GitHub repo
-git remote add origin https://github.com/DeepSpace-user_38p3fn6iTbV25TyWCNcFJ0Dxrx5/stock-tracker.git
-
-# Push
-git push -u origin main
-```
-
-If the folder already has a different `origin`, point it at this repo and push:
-
-```bash
-git remote set-url origin https://github.com/DeepSpace-user_38p3fn6iTbV25TyWCNcFJ0Dxrx5/stock-tracker.git
-git push -u origin main
-```
-
-**Important:** Do not commit `.env`. It’s in `.gitignore` so `git add .` will skip it. Never add API keys to the repo.
-
----
+- **Repo**: `https://github.com/IcyeyeLOL/stock-tracker`
 
 ## License
 
