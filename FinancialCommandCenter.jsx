@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useStorage } from '@deepspaceai/react';
+import { useStorage } from '@/hooks/useStorage';
+import { miyagiAPI } from '@/lib/widgetApi';
 
 // Constants
 const SECTORS = [

@@ -27,12 +27,13 @@ export async function GET(request: NextRequest) {
 
     if (data.status === 'ok') {
       return NextResponse.json(data)
-    } else {
-      return NextResponse.json(
-        { error: data.message || 'Failed to fetch news' },
-        { status: 400 }
-      )
     }
+    // NewsAPI returns status 'error' with message (e.g. rate limit, plan limit, bad key)
+    const message = data.message || 'Failed to fetch news'
+    return NextResponse.json(
+      { error: message, articles: [] },
+      { status: 400 }
+    )
   } catch (error) {
     console.error('Error fetching news:', error)
     return NextResponse.json(
