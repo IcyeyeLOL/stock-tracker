@@ -1,0 +1,24 @@
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #digest-content,
+  #digest-content * {
+    visibility: visible;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  #digest-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #ffffff !important;
+  }
+  #digest-content a,
+  #digest-content .text-gray-500,
+  #digest-content .text-gray-400 {
+    color: #000000 !important;
+  }
+}

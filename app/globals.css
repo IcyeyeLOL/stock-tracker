@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 10, 10, 10;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Pitch-black text when exporting digest to PDF */
+body.pdf-exporting #digest-content,
+body.pdf-exporting #digest-content * {
+  color: #000000 !important;
+}
+body.pdf-exporting #digest-content {
+  background: #ffffff !important;
+}
+body.pdf-exporting #digest-content a,
+body.pdf-exporting #digest-content .text-gray-500,
+body.pdf-exporting #digest-content .text-gray-400 {
+  color: #000000 !important;
+}
